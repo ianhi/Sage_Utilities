@@ -69,7 +69,8 @@ Integration wrt multiple variables newIntegral(f(x,y),x,y)
     or newIntegral(f(x,y),(x,0,2),y)
     or newIntegral(f(x,y),(x,0,2),y(1,5))
     this should work for any number of variables to integrate over
-Keeps the functionality of the old integral: newIntegral(f,x,0,2)=integral(f,x,0,2)
+    Keeps the functionality of the old integral: newIntegral(f,x,0,2)=integral(f,x,0,2)
+    uses _newIntegral to actual recurse over input after input was processed.
     '''
     variables=[]
     lower_bound=[]
