@@ -1,7 +1,11 @@
 from sage.all import *
 from sage.symbolic import *
 def sym_or_num_Integral(f,variables,lower_bound=[None],upper_bound=[None],algorithm='maxima'):
-    '''needs to check if bounds are list or not'''
+    '''
+    needs to check if bounds are list or not
+    returns analytic solution if found - otherwise numeric solution
+    also allows multiple integreals
+    '''
     if isinstance(variables,list):
         if not isinstance(lower_bound,list):
             lower_bound=[lower_bound]
@@ -25,9 +29,9 @@ def sym_or_num_Integral(f,variables,lower_bound=[None],upper_bound=[None],algori
     else:
         return result
 def is_symbol(x):
-    '''naive is symbol - there is a better one from i believe ginacs but confusing on how to access- can find usage in Expression.derivative
     '''
-    #print x
+    naive check if something is a symboll - i believe there there is a better one using ginacs but confusing on how to access- can find usage in Expression.derivative
+    '''
     if isinstance(x,list) or isinstance(x,tuple):
         for i in x:
             return is_symbol(i)
@@ -36,8 +40,12 @@ def is_symbol(x):
             return True
     else:
         return False
+    
 def _newIntegral(f,variables,lower_bound=[None],upper_bound=[None],algorithm='maxima'):
-    '''needs to check if bounds are list or not'''
+    '''
+    needs to check if bounds are list or not
+    actually does integral after newIntegral processes input
+    '''
     if isinstance(variables,list):
         if not isinstance(lower_bound,list):
             lower_bound=[lower_bound]
